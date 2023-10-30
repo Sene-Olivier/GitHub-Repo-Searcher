@@ -1,0 +1,23 @@
+@use '../../styles/variables' as v;
+
+.App {
+  text-align: center;
+  background-color: v.$color-container;
+  width: 85%;
+  margin: 0 auto;
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__header-logo {
+    width: 8rem;
+    margin: 1rem;
+  }
+
+  &-link {
+    color: v.$color-primary;
+  }
+}

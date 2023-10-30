@@ -1,0 +1,27 @@
+@use '../../styles/variables.scss' as v;
+
+.ReposResults {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 1rem;
+  gap: 1.5rem;
+
+  &__card {
+    background-color: v.$color-primary;
+    display: flex;
+    flex-direction: column;
+    width: 28%;
+  }
+
+  &-picture {
+    img {
+      height: 50%;
+    }
+  }
+
+  &-information {
+    width: 100px;
+  }
+}
