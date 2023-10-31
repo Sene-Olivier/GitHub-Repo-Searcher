@@ -10,15 +10,9 @@
 
   &__card {
     background-color: v.$color-primary;
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Mettez les cartes en ligne */
+    flex-direction: column; /* Vous pouvez retirer cette ligne si vous ne souhaitez pas que le contenu à l'intérieur des cartes soit en colonne */
     width: 28%;
-  }
-
-  &-picture {
-    img {
-      height: 50%;
-    }
   }
 
   &-information {
