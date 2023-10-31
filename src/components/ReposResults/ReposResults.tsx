@@ -23,7 +23,7 @@ function ReposResults({ repos }: ReposResultsProps) {
           image={repo.owner.avatar_url}
           header={repo.name}
           meta={repo.owner.login}
-          description={repo.description?.toUpperCase()}
+          description={repo.description}
         />
       ))}
     </Card.Group>

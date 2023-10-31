@@ -1,7 +1,15 @@
 import { ChangeEvent, useState } from 'react';
 import { Form, Input, Segment } from 'semantic-ui-react';
 
-function SearchBar() {
+// Pour que le composant SearchBar avertisse le composant parent d'un soumission de formulaire
+// Il va falloir que le composant parent passe une fonction en propriété
+// Et donc que je crée un contrat pour spécifier tout ça
+type SearchBarProps = {
+  // Le but de cette fonction est de transmettre la valeur de l'input au composant parent
+  // Ma fonction prendra donc un paramètre que je nomme textToSearch qui sera de type string
+  onSubmitSearchForm: (textToSearch: string) => void;
+};
+function SearchBar({ onSubmitSearchForm }: SearchBarProps) {
   // Je stocke l'information sur la valeur de mon input dans le composant SearchBar
   // Car seul ce composant a besoin de connaître cette information à chaque instant
   // Le composant App voudra cette information mais uniquement à un moment précis, la soumission du formulaire
@@ -14,9 +22,15 @@ function SearchBar() {
     setSearchText(newValue);
   };
 
+  const handleSubmitSearchForm = () => {
+    // Pas besoin de faire preventDefault car le composant Form de Semantic UI le fait pour moi
+    // Je passe la valeur de searchText au composant parent
+    onSubmitSearchForm(searchText);
+  };
+
   return (
     <Segment>
-      <Form>
+      <Form onSubmit={handleSubmitSearchForm}>
         <Form.Field>
           <Input
             name="search"
